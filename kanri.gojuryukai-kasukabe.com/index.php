@@ -1,6 +1,6 @@
 <?php
     $test = 4
-
+    require_once '../_function/_dbconnect.php';
 
 ?>
 
@@ -12,6 +12,8 @@
     <title>管理ページ<?= $test; ?></title>
 </head>
 <body>
-    
+    <?php
+
+    ?>
 </body>
 </html>
