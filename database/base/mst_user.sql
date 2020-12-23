@@ -1,3 +1,35 @@
-CREATE TABLE mst_user(
-
-);
+CREATE TABLE IF NOT EXISTS mst_user(
+    user_id	int(5) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'ユーザID',
+    login_id varchar(255) NOT NULL COMMENT 'ログインID',
+    login_pw varchar(255) NOT NULL COMMENT 'ログインPW',
+    branch_id	int(2) UNSIGNED NULL DEFAULT NULL COMMENT '所属ID',
+    last_name	varchar(50) NULL DEFAULT NULL COMMENT '氏',
+    first_name	varchar(50) NULL DEFAULT NULL COMMENT '名',
+    last_name_kana	varchar(50) NULL DEFAULT NULL COMMENT '氏_ふりがな',
+    first_name_kana	varchar(50) NULL DEFAULT NULL COMMENT '名_かな',
+    status_id	int(1) UNSIGNED NULL DEFAULT NULL COMMENT 'ステータスID',
+    sex_id	int(1) UNSIGNED NULL DEFAULT NULL COMMENT '性別',
+    birthday	date NULL DEFAULT NULL COMMENT '生年月日',
+    postal_cd	varchar(8) NULL DEFAULT NULL COMMENT '郵便番号',
+    address_name	varchar(200) NULL DEFAULT NULL COMMENT '住所',
+    tel	varchar(20) NULL DEFAULT NULL COMMENT '電話番号_固定',
+    mob_1_rel	varchar(20) NULL DEFAULT NULL COMMENT '携帯1_電話番号_続柄',
+    mob_1_tel	varchar(20) NULL DEFAULT NULL COMMENT '携帯1_電話番号',
+    mob_1_email	varchar(255) NULL DEFAULT NULL COMMENT '携帯1_Email',
+    mob_1_line_id	varchar(255) NULL DEFAULT NULL COMMENT '携帯1_line',
+    mob_2_rel	varchar(20) NULL DEFAULT NULL COMMENT '携帯2_電話番号_続柄',
+    mob_2_tel	varchar(20) NULL DEFAULT NULL COMMENT '携帯2_電話番号',
+    mob_2_email	varchar(255) NULL DEFAULT NULL COMMENT '携帯2_Email',
+    mob_2_line_id	varchar(255) NULL DEFAULT NULL COMMENT '携帯2_line',
+    join_date	date NULL DEFAULT NULL COMMENT '入会日',
+    member_num_alljapan	varchar(255) NULL DEFAULT NULL COMMENT '会員番号_全空連',
+    member_num_saikuren	varchar(255) NULL DEFAULT NULL COMMENT '会員番号_埼空連',
+    system_role_id	int(2) UNSIGNED NULL DEFAULT NULL COMMENT 'システム権限ID',
+    user_group_id	int(5) UNSIGNED  NULL DEFAULT NULL COMMENT 'ユーザグループID',
+    user_group_manager_flag	int(1) UNSIGNED NOT NULL COMMENT 'グループ代表者フラグ',
+    delete_flag	int(1) UNSIGNED NOT NULL DEFAULT 0 COMMENT '削除済フラグ',
+    last_edit_datetime	datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '最終更新日時',
+    last_edit_user_id	int(5) UNSIGNED NULL DEFAULT NULL COMMENT '最終更新者',
+    PRIMARY KEY(user_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
+;
